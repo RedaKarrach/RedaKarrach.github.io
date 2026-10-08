@@ -121,10 +121,6 @@ export const en: Dict = {
     title: "Tools and technologies I use",
     sub: "Click an item to see which project I used it in.",
     studiedNote: "Subjects studied in the engineering track, not claimed expertise.",
-    clear: "Clear selection",
-    usedIn: "Used in",
-    notInProjects: "Not used in a published project yet.",
-    selected: "Selected",
   },
   path: {
     kicker: "Path",

@@ -122,10 +122,6 @@ export const fr = {
     title: "Outils et technologies que j'utilise",
     sub: "Cliquez sur un élément pour voir dans quel projet je l'ai utilisé.",
     studiedNote: "Matières étudiées en cycle ingénieur, pas une expertise revendiquée.",
-    clear: "Effacer la sélection",
-    usedIn: "Utilisé dans",
-    notInProjects: "Pas encore utilisé dans un projet publié.",
-    selected: "Sélection",
   },
   path: {
     kicker: "Parcours",
