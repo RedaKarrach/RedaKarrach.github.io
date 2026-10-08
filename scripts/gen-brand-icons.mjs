@@ -22,7 +22,9 @@ for (const slug of slugs) {
     missing.push(slug);
     continue;
   }
-  entries.push(`  ${slug}: { title: ${JSON.stringify(icon.title)}, hex: "${icon.hex}", path: ${JSON.stringify(icon.path)} },`);
+  entries.push(
+    `  ${slug}: { title: ${JSON.stringify(icon.title)}, hex: "${icon.hex}", path: ${JSON.stringify(icon.path)} },`,
+  );
 }
 if (missing.length) {
   console.error(`gen-brand-icons: unknown slugs: ${missing.join(", ")}`);
