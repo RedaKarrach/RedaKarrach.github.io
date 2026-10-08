@@ -70,16 +70,16 @@ If a deploy fails with `csp-hashes: vercel.json is stale`, run `npm run build &&
 
 Headers set in `vercel.json`:
 
-| Header                       | Value                                                                                                                                                                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Header                       | Value                                                                                                                                                                                                                                                                   |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Content-Security-Policy      | `default-src 'none'; script-src 'self' 'sha256-…' (one hash per inline script); style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests` |
-| Strict-Transport-Security    | `max-age=63072000; includeSubDomains; preload`                                                                                                                                                                                                           |
-| X-Content-Type-Options       | `nosniff`                                                                                                                                                                                                                                                 |
-| X-Frame-Options              | `DENY`                                                                                                                                                                                                                                                    |
-| Referrer-Policy              | `no-referrer`                                                                                                                                                                                                                                             |
-| Permissions-Policy           | camera, microphone, geolocation, payment, usb, sensors, Topics all denied                                                                                                                                                                                 |
-| Cross-Origin-Opener-Policy   | `same-origin`                                                                                                                                                                                                                                             |
-| Cross-Origin-Resource-Policy | `same-origin`                                                                                                                                                                                                                                             |
+| Strict-Transport-Security    | `max-age=63072000; includeSubDomains; preload`                                                                                                                                                                                                                          |
+| X-Content-Type-Options       | `nosniff`                                                                                                                                                                                                                                                               |
+| X-Frame-Options              | `DENY`                                                                                                                                                                                                                                                                  |
+| Referrer-Policy              | `no-referrer`                                                                                                                                                                                                                                                           |
+| Permissions-Policy           | camera, microphone, geolocation, payment, usb, sensors, Topics all denied                                                                                                                                                                                               |
+| Cross-Origin-Opener-Policy   | `same-origin`                                                                                                                                                                                                                                                           |
+| Cross-Origin-Resource-Policy | `same-origin`                                                                                                                                                                                                                                                           |
 
 - **No `unsafe-eval`, no `unsafe-inline`.** Next.js emits a few inline bootstrap scripts and this site adds one small boot script that applies the stored theme before paint. `scripts/csp-hashes.mjs` hashes each of them after the build; `npm run build` fails if the committed hashes do not match.
 - **`style-src 'self'` with no exception.** The exported HTML contains no `style` attribute and no `<style>` tag (checked at build time). Dynamic styles (3D view tooltip) are applied client-side through the CSSOM, which CSP does not restrict.
@@ -88,12 +88,12 @@ Headers set in `vercel.json`:
 
 ## Measurements
 
-| Check                               | Result                                   |
-| ----------------------------------- | ---------------------------------------- |
-| TypeScript / ESLint errors          | 0 / 0                                    |
-| Lighthouse mobile (local export)    | see the table in the latest release note |
+| Check                               | Result                                    |
+| ----------------------------------- | ----------------------------------------- |
+| TypeScript / ESLint errors          | 0 / 0                                     |
+| Lighthouse mobile (local export)    | see the table in the latest release note  |
 | securityheaders.com                 | pending (measured after the first deploy) |
-| Horizontal scroll at 360 to 1600 px | none                                     |
+| Horizontal scroll at 360 to 1600 px | none                                      |
 
 ## Content rules
 
