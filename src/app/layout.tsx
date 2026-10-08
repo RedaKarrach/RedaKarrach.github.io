@@ -89,7 +89,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
-        <link rel="preload" as="image" href="/profile/reda-400.avif" type="image/avif" />
       </head>
       <body className="min-h-dvh">
         <AppProvider>{children}</AppProvider>

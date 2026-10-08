@@ -24,5 +24,3 @@ jobs:
       # Build, then verify the committed CSP hashes match this build and run the
       # post-build checks (no third-party resources, no em dashes, security.txt valid).
       - run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,5 @@
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
 import { Hero } from "@/components/site/Hero";
 import { Lab } from "@/components/site/Lab";
 import { Nav } from "@/components/site/Nav";
@@ -25,7 +24,6 @@ export default function Page() {
         <PathTimeline />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

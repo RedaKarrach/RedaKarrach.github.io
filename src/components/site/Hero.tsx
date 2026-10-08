@@ -3,15 +3,14 @@
 import { identity } from "@/content/identity";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
-import { IconRing } from "./IconRing";
 
 export function Hero() {
   const { t } = useApp();
   return (
     <section id="top" aria-labelledby="hero-name" className="relative overflow-hidden">
       <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden />
-      <div className="container-x relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-12 lg:py-28">
-        <div className="order-2 lg:order-1 lg:col-span-7">
+      <div className="container-x relative flex flex-col items-center py-20 text-center sm:py-28 lg:py-36">
+        <div className="flex max-w-3xl flex-col items-center">
           <p className="kicker">{t.hero.greeting}</p>
           <h1
             id="hero-name"
@@ -20,9 +19,9 @@ export function Hero() {
             {identity.name}
           </h1>
           <p className="text-accent mt-3 text-xl font-semibold sm:text-2xl">{t.hero.role}</p>
-          <p className="text-muted mt-5 max-w-xl text-lg leading-relaxed">{t.hero.tagline}</p>
+          <p className="text-muted mt-5 max-w-2xl text-lg leading-relaxed">{t.hero.tagline}</p>
 
-          <ul className="text-muted mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <ul className="text-muted mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <li className="flex items-center gap-2">
               <Icon name="pin" className="text-accent h-4 w-4" />
               {t.hero.location}
@@ -33,7 +32,7 @@ export function Hero() {
             </li>
           </ul>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a href={identity.cvPath} download="Karrach_CV.pdf" className="btn-primary">
               <Icon name="download" className="h-4.5 w-4.5" />
               {t.hero.cv}
@@ -44,7 +43,10 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="mt-8 flex items-center gap-3" aria-label={t.hero.socialsLabel}>
+          <ul
+            className="mt-8 flex items-center justify-center gap-3"
+            aria-label={t.hero.socialsLabel}
+          >
             {[
               { href: identity.github, icon: "github" as const, label: t.hero.socials.github },
               {
@@ -75,10 +77,6 @@ export function Hero() {
               </a>
             </li>
           </ul>
-        </div>
-
-        <div className="order-1 flex justify-center lg:order-2 lg:col-span-5 lg:justify-end">
-          <IconRing />
         </div>
       </div>
     </section>

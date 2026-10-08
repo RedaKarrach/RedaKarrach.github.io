@@ -2,7 +2,7 @@
 
 import { useApp } from "@/lib/providers";
 import { Icon, type IconName } from "./Icon";
-import { Portrait } from "./Portrait";
+import { IconRing } from "./IconRing";
 import { Section } from "./Section";
 
 const icons: IconName[] = ["radar", "bug", "code", "network"];
@@ -46,8 +46,8 @@ export function Services() {
           <Card item={items[0]} align="right" />
           <Card item={items[1]} align="right" />
         </ul>
-        <div className="order-first mx-auto w-[200px] sm:w-[240px] lg:order-none lg:w-[260px]">
-          <Portrait size={260} />
+        <div className="order-first lg:order-none">
+          <IconRing />
         </div>
         <ul className="grid gap-6">
           <Card item={items[2]} align="left" />

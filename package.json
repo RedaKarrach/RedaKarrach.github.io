@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/fetch-repos.mjs",
     "build": "next build && node scripts/csp-hashes.mjs --check",
     "postbuild": "node scripts/postbuild.mjs",
     "csp": "node scripts/csp-hashes.mjs --write",

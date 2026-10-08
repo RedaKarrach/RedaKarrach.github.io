@@ -116,10 +116,6 @@ export const fr = {
     openShot: "Agrandir la capture",
     noScreens: "Aucune capture d'écran publiée pour ce projet.",
     usesTool: "utilise",
-    otherRepos: "Autres projets sur GitHub",
-    otherReposSub: "Liste récupérée automatiquement depuis mon profil GitHub.",
-    updated: "Mis à jour le",
-    noLanguage: "Divers",
   },
   skills: {
     kicker: "Compétences",
@@ -157,11 +153,6 @@ export const fr = {
     cv: "Télécharger mon CV (PDF)",
     copy: "Copier l'adresse",
     copied: "Adresse copiée",
-  },
-  footer: {
-    madeBy: "Site conçu et développé par mes soins avec Next.js.",
-    source: "Code source du site",
-    top: "Haut de page",
   },
   theme: { label: "Thème", dark: "Sombre", light: "Clair" },
   lang: { label: "Langue", fr: "FR", en: "EN" },

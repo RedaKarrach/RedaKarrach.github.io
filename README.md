@@ -8,11 +8,11 @@ Live site: https://case-rk-2027.vercel.app (change `siteUrl` in `src/content/ide
 
 ## Sections
 
-1. **Home.** Name, role, one plain sentence, location and availability, CV download, GitHub / LinkedIn / email, round portrait.
-2. **What I do.** Four cards around the portrait, in plain words: monitoring and incident response, penetration testing, software development, networks and systems.
+1. **Home.** Centred: name, role, one plain sentence, location and availability, CV download, GitHub / LinkedIn / email.
+2. **What I do.** Four cards around the portrait, which sits inside a slowly rotating 3D ring of tool logos (pure CSS 3D, static under reduced motion), in plain words: monitoring and incident response, penetration testing, software development, networks and systems.
 3. **About.** Three short paragraphs and four facts (location, education, languages, goal: a 4 to 6 month PFE internship from early 2027).
 4. **My lab.** An interactive 3D view of both projects' real infrastructure (Canvas 2D with hand-written perspective projection, no 3D library). Drag to rotate, hover a node to read its role, click to open the project. Static under `prefers-reduced-motion`.
-5. **Projects.** One card per project with a one-paragraph explanation anyone can follow, key points, technologies, the attacks it detects (MITRE ATT&CK IDs, linked), known limitations, a **View the code on GitHub** button, and a **Technical details** toggle with architecture, detection rules, playbook, validation, roadmap and screenshots (lightbox). Below, the other public repositories, fetched from the GitHub API at build time with a committed fallback.
+5. **Projects.** One card per project with a one-paragraph explanation anyone can follow, key points, technologies, the attacks it detects (MITRE ATT&CK IDs, linked), known limitations, a **View the code on GitHub** button, and a **Technical details** toggle with architecture, detection rules, playbook, validation, roadmap and screenshots (lightbox).
 6. **Skills.** Grouped chips. Clicking a chip highlights the projects (and the internship) that used it. Studied subjects are labelled as such.
 7. **Path.** Timeline of education, internship and projects, plus certifications and languages.
 8. **Contact.** Email (with copy button), LinkedIn, GitHub, CV.
@@ -32,7 +32,6 @@ src/
 └─ lib/            providers (app state), prefs (external store for theme and language),
                    projection (3D maths), hooks, format, attack (ATT&CK links)
 scripts/
-├─ fetch-repos.mjs       prebuild: GitHub API → public/repos.json, falls back to the committed file
 ├─ optimise-images.mjs   PNG screenshots → AVIF + WebP at 1600 and 640 px, writes a dimensions manifest
 ├─ csp-hashes.mjs        hashes every inline <script> in out/ and writes vercel.json (see Security)
 └─ postbuild.mjs         fails the build on external scripts or styles, em dashes, or an expired security.txt
@@ -51,7 +50,7 @@ npm run dev          # http://localhost:3000
 
 ```bash
 npm run images       # regenerate public/screenshots from .raw-shots/*.png
-npm run build        # prebuild fetches repos, builds the static export to out/, verifies CSP hashes, runs postbuild checks
+npm run build        # builds the static export to out/, verifies CSP hashes, runs postbuild checks
 npm run csp          # regenerate vercel.json hashes after a change that alters the HTML
 npm run lint && npm run typecheck && npm run format:check
 ```
@@ -62,7 +61,6 @@ Put the CV at `public/cv/Karrach_CV.pdf` and the portrait source at `.raw-shots/
 
 1. Import the GitHub repository in Vercel. Framework preset: Next.js. Build command `npm run build`, output directory `out`.
 2. `vercel.json` carries the security headers and clean URLs; it is committed.
-3. Optional: a `GITHUB_TOKEN` environment variable raises the rate limit for the build-time repository fetch. Without it the committed `public/repos.json` is used when the API refuses.
 
 If a deploy fails with `csp-hashes: vercel.json is stale`, run `npm run build && npm run csp` locally and commit `vercel.json`. A fixed `generateBuildId` keeps the inline bootstrap scripts byte-identical across machines for the same source tree.
 

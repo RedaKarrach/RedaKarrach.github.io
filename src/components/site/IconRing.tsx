@@ -26,7 +26,7 @@ export function IconRing() {
           ))}
         </ul>
         <div className="orbit3d-center">
-          <Portrait size={330} priority />
+          <Portrait size={330} />
         </div>
       </div>
     </div>

@@ -115,10 +115,6 @@ export const en: Dict = {
     openShot: "Enlarge screenshot",
     noScreens: "No screenshots published for this project.",
     usesTool: "uses",
-    otherRepos: "Other projects on GitHub",
-    otherReposSub: "List fetched automatically from my GitHub profile.",
-    updated: "Updated",
-    noLanguage: "Misc",
   },
   skills: {
     kicker: "Skills",
@@ -156,11 +152,6 @@ export const en: Dict = {
     cv: "Download my CV (PDF)",
     copy: "Copy address",
     copied: "Address copied",
-  },
-  footer: {
-    madeBy: "Designed and built by me with Next.js.",
-    source: "Site source code",
-    top: "Back to top",
   },
   theme: { label: "Theme", dark: "Dark", light: "Light" },
   lang: { label: "Language", fr: "FR", en: "EN" },
