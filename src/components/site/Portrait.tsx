@@ -30,7 +30,7 @@ export function Portrait({
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         decoding={priority ? "sync" : "async"}
-        className="ring-accent/80 ring-offset-bg aspect-square h-auto w-full rounded-full object-cover ring-4 ring-offset-4"
+        className="portrait aspect-square h-auto w-full rounded-full object-cover"
       />
     </picture>
   );

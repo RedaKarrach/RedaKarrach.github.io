@@ -30,6 +30,7 @@ export const en: Dict = {
     cv: "Download my CV",
     projects: "See my projects",
     photoAlt: "Portrait of Mohamed Reda Karrach",
+    ringLabel: "Tools I use every day",
     socialsLabel: "Social links and contact",
     socials: { github: "GitHub", linkedin: "LinkedIn", email: "Send me an email" },
   },

@@ -51,7 +51,7 @@ export function Contact() {
           href={identity.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="card group hover:border-accent flex flex-col gap-3 p-6 transition-colors"
+          className="card card-3d group hover:border-accent flex flex-col gap-3 p-6 transition-colors"
         >
           <span className="bg-accent-soft text-accent grid h-12 w-12 place-items-center rounded-full">
             <Icon name="linkedin" className="h-6 w-6" />
@@ -66,7 +66,7 @@ export function Contact() {
           href={identity.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="card group hover:border-accent flex flex-col gap-3 p-6 transition-colors"
+          className="card card-3d group hover:border-accent flex flex-col gap-3 p-6 transition-colors"
         >
           <span className="bg-accent-soft text-accent grid h-12 w-12 place-items-center rounded-full">
             <Icon name="github" className="h-6 w-6" />

@@ -3,6 +3,7 @@
 import { projects } from "@/content/projects";
 import { internshipTools, toolLabelEn, toolkit } from "@/content/toolkit";
 import { useApp } from "@/lib/providers";
+import { BrandIcon } from "./BrandIcon";
 import { Section } from "./Section";
 
 export function Skills() {
@@ -40,12 +41,11 @@ export function Skills() {
                         type="button"
                         aria-pressed={active}
                         onClick={() => setActiveTool(active ? null : tool)}
-                        className={`chip cursor-pointer transition-colors ${group.studied ? "border-dashed" : ""} ${
-                          active
-                            ? "border-accent bg-accent text-bg"
-                            : "hover:border-accent hover:text-accent"
+                        className={`chip card-3d cursor-pointer gap-1.5 transition-colors ${group.studied ? "border-dashed" : ""} ${
+                          active ? "chip-active" : "hover:border-accent hover:text-accent"
                         }`}
                       >
+                        <BrandIcon tool={tool} className="h-4 w-4 shrink-0 opacity-80" />
                         {label(tool)}
                       </button>
                     </li>

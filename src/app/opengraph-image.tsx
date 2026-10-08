@@ -9,9 +9,9 @@ export const alt = fr.meta.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const BG = "#0b1620";
-const FG = "#e8eef3";
-const ACCENT = "#34d399";
+const BG = "#140f11";
+const FG = "#f3ecea";
+const ACCENT = "#c96c74";
 
 async function font(file: string) {
   return readFile(path.join(process.cwd(), "src", "fonts", "og", file));
@@ -37,7 +37,7 @@ export default async function OpenGraphImage() {
         color: FG,
         padding: "64px 72px",
         fontFamily: "Plex Sans",
-        backgroundImage: `radial-gradient(circle at 80% 30%, rgba(52,211,153,0.22), transparent 55%)`,
+        backgroundImage: `radial-gradient(circle at 80% 30%, rgba(122,45,53,0.45), transparent 55%)`,
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 720 }}>

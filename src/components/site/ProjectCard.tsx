@@ -5,6 +5,7 @@ import type { Project } from "@/content/types";
 import { attackUrl } from "@/lib/attack";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
+import { BrandIcon } from "./BrandIcon";
 import { Screenshots } from "./Screenshots";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -93,7 +94,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </h4>
             <ul className="mt-2 flex flex-wrap gap-2">
               {project.stack.map((s) => (
-                <li key={s} className="chip">
+                <li key={s} className="chip gap-1.5">
+                  <BrandIcon tool={s} className="h-4 w-4 shrink-0 opacity-80" />
                   {s}
                 </li>
               ))}

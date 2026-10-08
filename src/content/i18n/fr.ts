@@ -32,6 +32,7 @@ export const fr = {
     cv: "Télécharger mon CV",
     projects: "Voir mes projets",
     photoAlt: "Portrait de Mohamed Reda Karrach",
+    ringLabel: "Outils que j'utilise au quotidien",
     socialsLabel: "Réseaux et contact",
     socials: { github: "GitHub", linkedin: "LinkedIn", email: "M'écrire un e-mail" },
   },

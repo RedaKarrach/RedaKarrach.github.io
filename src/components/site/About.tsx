@@ -18,7 +18,7 @@ export function About() {
         </div>
         <ul className="grid gap-3 self-start sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
           {t.about.facts.map((f, i) => (
-            <li key={f.label} className="card flex gap-4 p-4">
+            <li key={f.label} className="card card-3d flex gap-4 p-4">
               <span className="bg-accent-soft text-accent grid h-10 w-10 shrink-0 place-items-center rounded-full">
                 <Icon name={factIcons[i]} className="h-5 w-5" />
               </span>

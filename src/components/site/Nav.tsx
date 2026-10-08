@@ -18,7 +18,7 @@ export function Nav() {
       <div className="container-x flex h-16 items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3">
           <span
-            className="bg-accent text-bg grid h-9 w-9 place-items-center rounded-full text-sm font-bold"
+            className="badge-wine grid h-9 w-9 place-items-center rounded-full text-sm font-bold"
             aria-hidden
           >
             RK

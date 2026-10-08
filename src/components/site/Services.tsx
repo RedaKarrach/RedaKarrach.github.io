@@ -16,7 +16,7 @@ function Card({
 }) {
   return (
     <li
-      className={`card flex gap-4 p-5 sm:p-6 ${align === "right" ? "lg:flex-row-reverse lg:text-right" : ""}`}
+      className={`card card-3d flex gap-4 p-5 sm:p-6 ${align === "right" ? "lg:flex-row-reverse lg:text-right" : ""}`}
     >
       <span className="bg-accent-soft text-accent grid h-12 w-12 shrink-0 place-items-center rounded-full">
         <Icon name={item.icon} className="h-6 w-6" />

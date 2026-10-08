@@ -68,7 +68,7 @@ export function Repos() {
             href={r.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="card group hover:border-accent flex h-full flex-col gap-2 p-4 transition-colors"
+            className="card card-3d group hover:border-accent flex h-full flex-col gap-2 p-4 transition-colors"
           >
             <span className="flex items-center justify-between gap-3">
               <span className="group-hover:text-accent truncate font-semibold">{r.name}</span>

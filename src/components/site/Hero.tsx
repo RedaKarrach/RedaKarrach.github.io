@@ -3,7 +3,7 @@
 import { identity } from "@/content/identity";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
-import { Portrait } from "./Portrait";
+import { IconRing } from "./IconRing";
 
 export function Hero() {
   const { t } = useApp();
@@ -78,12 +78,7 @@ export function Hero() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2 lg:col-span-5 lg:justify-end">
-          <div className="orbit relative w-[220px] sm:w-[280px] lg:w-[320px]">
-            <span className="orbit-ring" aria-hidden />
-            <span className="orbit-dot orbit-dot-a" aria-hidden />
-            <span className="orbit-dot orbit-dot-b" aria-hidden />
-            <Portrait size={320} priority className="relative" />
-          </div>
+          <IconRing />
         </div>
       </div>
     </section>
