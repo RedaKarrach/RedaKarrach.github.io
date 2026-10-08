@@ -1,8 +1,7 @@
 name: CI
 
+# Pushes to main are built and deployed by pages.yml; this runs only on pull requests.
 on:
-  push:
-    branches: [main]
   pull_request:
 
 permissions:
@@ -21,6 +20,4 @@ jobs:
       - run: npm run format:check
       - run: npm run lint
       - run: npm run typecheck
-      # Build, then verify the committed CSP hashes match this build and run the
-      # post-build checks (no third-party resources, no em dashes, security.txt valid).
       - run: npm run build

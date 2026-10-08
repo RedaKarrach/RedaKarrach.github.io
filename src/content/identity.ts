@@ -8,7 +8,7 @@ export const identity = {
   linkedin: "https://www.linkedin.com/in/reda-karrach-a2a52730b",
   cvPath: "/cv/Karrach_CV.pdf",
   /** Repository of this very site. */
-  siteRepo: "https://github.com/RedaKarrach/case-rk-2027",
+  siteRepo: "https://github.com/RedaKarrach/RedaKarrach.github.io",
   /** Production URL used for sitemap, robots, Open Graph and security.txt. */
-  siteUrl: "https://case-rk-2027.vercel.app",
+  siteUrl: "https://redakarrach.github.io",
 } as const;

@@ -2,7 +2,7 @@
 
 Personal portfolio of Mohamed Reda Karrach, 5th-year cybersecurity engineering student in Casablanca (SOC and Blue Team focus, pentest background, full-stack development background). Written to be readable by non-technical visitors first, with technical depth one click away.
 
-Live site: https://case-rk-2027.vercel.app (change `siteUrl` in `src/content/identity.ts` if the domain changes)
+Live site: https://redakarrach.github.io
 
 ![Home](docs/screenshots/home.webp)
 
@@ -33,8 +33,7 @@ src/
                    projection (3D maths), hooks, format, attack (ATT&CK links)
 scripts/
 ├─ optimise-images.mjs   PNG screenshots → AVIF + WebP at 1600 and 640 px, writes a dimensions manifest
-├─ csp-hashes.mjs        hashes every inline <script> in out/ and writes vercel.json (see Security)
-└─ postbuild.mjs         fails the build on external scripts or styles, em dashes, or an expired security.txt
+└─ postbuild.mjs         CSP meta tag with per-page script hashes, opengraph-image.png, .nojekyll, and the checks (no third-party resources, no inline styles, no em dashes, security.txt valid)
 ```
 
 Design: deep navy background, mint accent, amber for caveats, with a light theme. All colour pairs meet WCAG 2.2 AA. IBM Plex Sans and Plex Mono are self-hosted (`src/fonts`, OFL) through `next/font/local`. Tailwind CSS 4 utilities map to CSS custom properties so one class works in both themes.
@@ -50,48 +49,41 @@ npm run dev          # http://localhost:3000
 
 ```bash
 npm run images       # regenerate public/screenshots from .raw-shots/*.png
-npm run build        # builds the static export to out/, verifies CSP hashes, runs postbuild checks
-npm run csp          # regenerate vercel.json hashes after a change that alters the HTML
+npm run build        # static export to out/ plus the post-build step (CSP meta, OG image, checks)
 npm run lint && npm run typecheck && npm run format:check
 ```
 
 Put the CV at `public/cv/Karrach_CV.pdf` and the portrait source at `.raw-shots/profile/reda.png` (optimised copies live in `public/profile`).
 
-## Deploy (Vercel)
+## Deploy (GitHub Pages)
 
-1. Import the GitHub repository in Vercel. Framework preset: Next.js. Build command `npm run build`, output directory `out`.
-2. `vercel.json` carries the security headers and clean URLs; it is committed.
+Every push to `main` runs `.github/workflows/pages.yml`: lint, typecheck, `npm run build` (static export plus `scripts/postbuild.mjs`), then deployment to GitHub Pages at https://redakarrach.github.io. The repository is named `RedaKarrach.github.io` so the site lives at the root of the domain. `ci.yml` runs the same checks on pull requests.
 
-If a deploy fails with `csp-hashes: vercel.json is stale`, run `npm run build && npm run csp` locally and commit `vercel.json`. A fixed `generateBuildId` keeps the inline bootstrap scripts byte-identical across machines for the same source tree.
+Nothing to configure after cloning. If the domain changes, update `siteUrl` in `src/content/identity.ts` and the URLs in `public/.well-known/security.txt`.
 
 ## Security
 
-Headers set in `vercel.json`:
+GitHub Pages cannot send custom HTTP headers, so the Content-Security-Policy is delivered as a `<meta http-equiv>` tag written into every page by `scripts/postbuild.mjs` after each build:
 
-| Header                       | Value                                                                                                                                                                                                                                                                   |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Content-Security-Policy      | `default-src 'none'; script-src 'self' 'sha256-…' (one hash per inline script); style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests` |
-| Strict-Transport-Security    | `max-age=63072000; includeSubDomains; preload`                                                                                                                                                                                                                          |
-| X-Content-Type-Options       | `nosniff`                                                                                                                                                                                                                                                               |
-| X-Frame-Options              | `DENY`                                                                                                                                                                                                                                                                  |
-| Referrer-Policy              | `no-referrer`                                                                                                                                                                                                                                                           |
-| Permissions-Policy           | camera, microphone, geolocation, payment, usb, sensors, Topics all denied                                                                                                                                                                                               |
-| Cross-Origin-Opener-Policy   | `same-origin`                                                                                                                                                                                                                                                           |
-| Cross-Origin-Resource-Policy | `same-origin`                                                                                                                                                                                                                                                           |
+```
+default-src none; script-src self sha256-… (one hash per inline script of that page); style-src self;
+img-src self data:; font-src self; connect-src self; manifest-src self; base-uri none;
+form-action none; object-src none; upgrade-insecure-requests
+```
 
-- **No `unsafe-eval`, no `unsafe-inline`.** Next.js emits a few inline bootstrap scripts and this site adds one small boot script that applies the stored theme before paint. `scripts/csp-hashes.mjs` hashes each of them after the build; `npm run build` fails if the committed hashes do not match.
-- **`style-src 'self'` with no exception.** The exported HTML contains no `style` attribute and no `<style>` tag (checked at build time). Dynamic styles (3D view tooltip) are applied client-side through the CSSOM, which CSP does not restrict.
-- Every external link has `rel="noopener noreferrer"` and is announced as opening a new tab.
-- No analytics, no trackers, no third-party scripts or fonts. A `/.well-known/security.txt` (RFC 9116) is published with the contact addresses and an expiry one year ahead.
+- **No `unsafe-eval`, no `unsafe-inline`.** Next.js emits a few inline bootstrap scripts and this site adds one small boot script that applies the stored theme before paint; each is hashed from the built HTML, so the policy can never be stale.
+- **`style-src self` with no exception.** The exported HTML contains no `style` attribute and no `<style>` tag (checked at build time). Dynamic styles (3D view tooltip) go through the CSSOM, which CSP does not restrict.
+- **What a meta policy cannot do**, stated openly: `frame-ancestors`, `Strict-Transport-Security`, `X-Content-Type-Options`, `Referrer-Policy` and `Permissions-Policy` are HTTP-header-only features and are therefore absent on GitHub Pages. HTTPS is enforced by Pages itself. The site has no forms, cookies, sessions or third-party scripts, so the practical exposure from the missing headers is limited to clickjacking of a public read-only page. A hosting platform that sets headers (Vercel, Netlify, Cloudflare Pages) would restore them without code changes.
+- Every external link has `rel="noopener noreferrer"` and is announced as opening a new tab. No analytics, no trackers, no third-party scripts or fonts. A `/.well-known/security.txt` (RFC 9116) is published with the contact addresses and an expiry one year ahead.
 
 ## Measurements
 
-| Check                               | Result                                    |
-| ----------------------------------- | ----------------------------------------- |
-| TypeScript / ESLint errors          | 0 / 0                                     |
-| Lighthouse mobile (local export)    | see the table in the latest release note  |
-| securityheaders.com                 | pending (measured after the first deploy) |
-| Horizontal scroll at 360 to 1600 px | none                                      |
+| Check                               | Result                                                                          |
+| ----------------------------------- | ------------------------------------------------------------------------------- |
+| TypeScript / ESLint errors          | 0 / 0                                                                           |
+| Lighthouse mobile (local export)    | see the table in the latest release note                                        |
+| securityheaders.com                 | not applicable on GitHub Pages (no custom headers); CSP delivered as a meta tag |
+| Horizontal scroll at 360 to 1600 px | none                                                                            |
 
 ## Content rules
 

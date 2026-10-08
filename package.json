@@ -1,12 +1,10 @@
 {
-  "name": "case-rk-2027",
+  "name": "redakarrach.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/csp-hashes.mjs --check",
-    "postbuild": "node scripts/postbuild.mjs",
-    "csp": "node scripts/csp-hashes.mjs --write",
+    "build": "next build && node scripts/postbuild.mjs",
     "images": "node scripts/optimise-images.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -36,6 +34,6 @@
   "description": "Case RK-2027: SOC-style portfolio of Mohamed Reda Karrach",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RedaKarrach/case-rk-2027"
+    "url": "https://github.com/RedaKarrach/RedaKarrach.github.io"
   }
 }
