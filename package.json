@@ -1,0 +1,40 @@
+{
+  "name": "case-rk-2027",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/fetch-repos.mjs",
+    "build": "next build && node scripts/csp-hashes.mjs --check",
+    "postbuild": "node scripts/postbuild.mjs",
+    "csp": "node scripts/csp-hashes.mjs --write",
+    "images": "node scripts/optimise-images.mjs",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "description": "Case RK-2027: SOC-style portfolio of Mohamed Reda Karrach",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RedaKarrach/case-rk-2027"
+  }
+}

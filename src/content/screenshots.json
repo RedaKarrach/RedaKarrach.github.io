@@ -1,0 +1,62 @@
+{
+  "01-wazuh-overview": {
+    "w": 1600,
+    "h": 772
+  },
+  "02-wazuh-rules-breakdown": {
+    "w": 1600,
+    "h": 780
+  },
+  "03-wazuh-agents": {
+    "w": 1600,
+    "h": 585
+  },
+  "04-shuffle-playbook-overview": {
+    "w": 1600,
+    "h": 513
+  },
+  "05-playbook-logic": {
+    "w": 780,
+    "h": 1043
+  },
+  "06-shuffle-editor": {
+    "w": 1600,
+    "h": 822
+  },
+  "07-shuffle-executions": {
+    "w": 1600,
+    "h": 765
+  },
+  "08-shuffle-execution-t1543": {
+    "w": 1600,
+    "h": 778
+  },
+  "09-thehive-alerts": {
+    "w": 1600,
+    "h": 798
+  },
+  "10-thehive-cases": {
+    "w": 1600,
+    "h": 747
+  },
+  "11-thehive-case-t1053": {
+    "w": 1600,
+    "h": 751
+  },
+  "12-cortex-analyzers": {
+    "w": 1600,
+    "h": 844
+  },
+  "13-cortex-jobs": {
+    "w": 1600,
+    "h": 785
+  },
+  "14-cortex-urlhaus-report": {
+    "w": 1600,
+    "h": 775
+  },
+  "17-attack-chain": {
+    "w": 828,
+    "h": 1557
+  }
+}

@@ -1,0 +1,370 @@
+@import "tailwindcss";
+
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens: deep navy, mint accent, warm amber for caveats.      */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #0b1620;
+  --fg: #e8eef3;
+  --muted: #a3b3c0;
+  --rule: rgba(232, 238, 243, 0.12);
+  --rule-strong: rgba(232, 238, 243, 0.3);
+  --surface-1: #111f2b;
+  --surface-2: #172a38;
+  --accent: #34d399;
+  --accent-soft: rgba(52, 211, 153, 0.14);
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 16px 40px -20px rgba(0, 0, 0, 0.7);
+  --glow: rgba(52, 211, 153, 0.18);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f6f8fa;
+    --fg: #0f1b26;
+    --muted: #51606d;
+    --rule: rgba(15, 27, 38, 0.12);
+    --rule-strong: rgba(15, 27, 38, 0.3);
+    --surface-1: #ffffff;
+    --surface-2: #eef2f5;
+    --accent: #077a4f;
+    --accent-soft: rgba(7, 122, 79, 0.1);
+    --warn: #8a5a00;
+    --danger: #b42318;
+    --shadow: 0 1px 0 rgba(15, 27, 38, 0.04), 0 16px 40px -24px rgba(15, 27, 38, 0.35);
+    --glow: rgba(7, 122, 79, 0.12);
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f8fa;
+  --fg: #0f1b26;
+  --muted: #51606d;
+  --rule: rgba(15, 27, 38, 0.12);
+  --rule-strong: rgba(15, 27, 38, 0.3);
+  --surface-1: #ffffff;
+  --surface-2: #eef2f5;
+  --accent: #077a4f;
+  --accent-soft: rgba(7, 122, 79, 0.1);
+  --warn: #8a5a00;
+  --danger: #b42318;
+  --shadow: 0 1px 0 rgba(15, 27, 38, 0.04), 0 16px 40px -24px rgba(15, 27, 38, 0.35);
+  --glow: rgba(7, 122, 79, 0.12);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: var(--font-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  --shadow-card: var(--shadow);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+.container-x {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-x {
+    padding-inline: 1.5rem;
+  }
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--rule);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--fg);
+  background: var(--surface-2);
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  transition:
+    background-color 160ms var(--ease-out-quart),
+    border-color 160ms var(--ease-out-quart),
+    color 160ms var(--ease-out-quart),
+    transform 160ms var(--ease-out-quart);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--rule-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Soft radial glow behind the hero */
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 75% 40%, var(--glow), transparent 70%),
+    radial-gradient(40% 40% at 15% 90%, var(--glow), transparent 70%);
+}
+
+/* Orbit decoration around the portrait */
+.orbit-ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 999px;
+  border: 1px dashed var(--rule-strong);
+  animation: orbit-spin 40s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.orbit-dot-a {
+  top: -4%;
+  left: 50%;
+  margin-left: -6px;
+  animation: orbit-a 12s linear infinite;
+  transform-origin: 6px calc(50% + 0.54 * 100% * 1px);
+}
+
+.orbit-dot-b {
+  right: -8%;
+  bottom: 18%;
+  background: var(--warn);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--warn) 18%, transparent);
+}
+
+.orbit {
+  --r: 57%;
+}
+
+.orbit-dot-a {
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  transform: rotate(0deg) translateX(var(--r)) translateX(0);
+  animation: orbit-a 14s linear infinite;
+}
+
+@keyframes orbit-a {
+  from {
+    transform: rotate(0deg) translate(calc(var(--r) * 1.9)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(calc(var(--r) * 1.9)) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion: section reveals under 300 ms, off under reduced motion      */
+/* ------------------------------------------------------------------ */
+html.js .reveal {
+  transition:
+    opacity 260ms var(--ease-out-quart),
+    transform 260ms var(--ease-out-quart);
+}
+
+html.js .reveal:not(.in) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html.js .reveal,
+  .btn-primary,
+  .btn-secondary {
+    transition: none !important;
+  }
+  html.js .reveal:not(.in) {
+    opacity: 1;
+    transform: none;
+  }
+  .orbit-ring,
+  .orbit-dot-a {
+    animation: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Print                                                               */
+/* ------------------------------------------------------------------ */
+@media print {
+  :root {
+    --bg: #ffffff;
+    --fg: #0f1b26;
+    --muted: #46535f;
+    --rule: rgba(15, 27, 38, 0.25);
+    --rule-strong: rgba(15, 27, 38, 0.5);
+    --surface-1: #ffffff;
+    --surface-2: #f1f4f7;
+    --accent: #077a4f;
+    --accent-soft: rgba(7, 122, 79, 0.1);
+    --warn: #8a5a00;
+    --shadow: none;
+  }
+  @page {
+    margin: 16mm;
+  }
+  body {
+    background: #fff;
+    color: #0f1b26;
+  }
+  .no-print,
+  .hero-glow,
+  .orbit-ring,
+  .orbit-dot,
+  canvas {
+    display: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  section,
+  article {
+    break-inside: avoid;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #46535f;
+  }
+}
