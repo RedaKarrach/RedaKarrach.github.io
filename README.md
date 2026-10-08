@@ -26,13 +26,13 @@ src/
 ├─ app/            layout (fonts, metadata, theme boot script), page, globals.css (tokens, components, print),
 │                  opengraph-image, sitemap, robots, not-found
 ├─ content/        ALL facts live here, typed: identity, projects, coverage (ATT&CK techniques),
-│                  topology (3D scene), toolkit, path, i18n/{fr,en}, repos.json, screenshots.json
+│                  topology (3D scene), toolkit, path, i18n/{fr,en}, screenshots.json
 ├─ components/site Nav, Hero, Portrait, Services, About, Lab + LabTopology, Projects + ProjectCard + Repos,
 │                  Screenshots + Lightbox, Skills, PathTimeline, Contact, Footer, Section, Icon, SkipLink
 └─ lib/            providers (app state), prefs (external store for theme and language),
                    projection (3D maths), hooks, format, attack (ATT&CK links)
 scripts/
-├─ fetch-repos.mjs       prebuild: GitHub API → src/content/repos.json, falls back to the committed file
+├─ fetch-repos.mjs       prebuild: GitHub API → public/repos.json, falls back to the committed file
 ├─ optimise-images.mjs   PNG screenshots → AVIF + WebP at 1600 and 640 px, writes a dimensions manifest
 ├─ csp-hashes.mjs        hashes every inline <script> in out/ and writes vercel.json (see Security)
 └─ postbuild.mjs         fails the build on external scripts or styles, em dashes, or an expired security.txt
@@ -62,7 +62,7 @@ Put the CV at `public/cv/Karrach_CV.pdf` and the portrait source at `.raw-shots/
 
 1. Import the GitHub repository in Vercel. Framework preset: Next.js. Build command `npm run build`, output directory `out`.
 2. `vercel.json` carries the security headers and clean URLs; it is committed.
-3. Optional: a `GITHUB_TOKEN` environment variable raises the rate limit for the build-time repository fetch. Without it the committed `repos.json` is used when the API refuses.
+3. Optional: a `GITHUB_TOKEN` environment variable raises the rate limit for the build-time repository fetch. Without it the committed `public/repos.json` is used when the API refuses.
 
 If a deploy fails with `csp-hashes: vercel.json is stale`, run `npm run build && npm run csp` locally and commit `vercel.json`. A fixed `generateBuildId` keeps the inline bootstrap scripts byte-identical across machines for the same source tree.
 

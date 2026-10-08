@@ -1,6 +1,7 @@
 "use client";
 
-import data from "@/content/repos.json";
+import { useEffect, useState } from "react";
+import { identity } from "@/content/identity";
 import { formatDate } from "@/lib/format";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
@@ -15,10 +16,50 @@ interface Repo {
 
 /** The two featured projects have their own cards above; everything else is listed here. */
 const FEATURED = ["distributed-soc-lab", "NetworkReconnaissanceTool"];
-const repos = (data as { repos: Repo[] }).repos.filter((r) => !FEATURED.includes(r.name));
 
+/**
+ * The list is written at build time to /repos.json and fetched here at runtime,
+ * so repository changes never alter the HTML (and therefore the CSP hashes).
+ */
 export function Repos() {
   const { t, lang } = useApp();
+  const [repos, setRepos] = useState<Repo[] | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/repos.json", { signal: controller.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((data: { repos: Repo[] }) =>
+        setRepos(data.repos.filter((r) => !FEATURED.includes(r.name))),
+      )
+      .catch(() => setRepos([]));
+    return () => controller.abort();
+  }, []);
+
+  if (repos === null) {
+    return (
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
+        {[0, 1, 2].map((i) => (
+          <li key={i} className="card h-28 animate-pulse" />
+        ))}
+      </ul>
+    );
+  }
+
+  if (repos.length === 0) {
+    return (
+      <a
+        href={identity.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent font-medium underline-offset-4 hover:underline"
+      >
+        github.com/{identity.githubHandle}
+        <span className="sr-only"> {t.a11y.external}</span>
+      </a>
+    );
+  }
+
   return (
     <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {repos.map((r) => (

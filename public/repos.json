@@ -1,7 +1,14 @@
 {
-  "fetchedAt": "2026-10-08T19:02:04.234Z",
+  "fetchedAt": "2026-10-08T20:08:20.411Z",
   "user": "RedaKarrach",
   "repos": [
+    {
+      "name": "case-rk-2027",
+      "description": "Portfolio of Mohamed Reda Karrach, cybersecurity engineering student (SOC, incident response, pentest, software engineering). Next.js static export.",
+      "language": "TypeScript",
+      "pushedAt": "2026-10-08T20:01:13Z",
+      "url": "https://github.com/RedaKarrach/case-rk-2027"
+    },
     {
       "name": "distributed-soc-lab",
       "description": "Two-host SOC lab: Wazuh + Shuffle + TheHive + Cortex, automated response playbooks validated with Atomic Red Team",

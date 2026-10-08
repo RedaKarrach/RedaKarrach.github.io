@@ -1,13 +1,13 @@
 /**
  * Build-time fetch of public repositories from the GitHub REST API.
- * Writes src/content/repos.json. If the API is unreachable or rate-limited,
+ * Writes public/repos.json (fetched by the browser at runtime, so the HTML and its CSP hashes do not change when repositories do). If the API is unreachable or rate-limited,
  * the committed file is kept so the build never fails. Runs as `prebuild`.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const USER = "RedaKarrach";
-const target = path.join(process.cwd(), "src", "content", "repos.json");
+const target = path.join(process.cwd(), "public", "repos.json");
 
 async function main() {
   let existing = null;
