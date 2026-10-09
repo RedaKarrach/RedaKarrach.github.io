@@ -24,6 +24,7 @@ export const fr = {
   },
   hero: {
     greeting: "Bonjour, je suis",
+    kicker: "Cybersécurité",
     role: "Étudiant ingénieur en cybersécurité",
     tagline:
       "Je protège les systèmes informatiques : je détecte les attaques, j'organise la réponse et je développe moi-même les outils pour le faire.",

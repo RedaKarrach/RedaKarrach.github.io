@@ -1,6 +1,6 @@
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
-import { Hero } from "@/components/site/Hero";
+import { Landing } from "@/components/site/Landing";
 import { Lab } from "@/components/site/Lab";
 import { Nav } from "@/components/site/Nav";
 import { PathTimeline } from "@/components/site/PathTimeline";
@@ -15,7 +15,7 @@ export default function Page() {
       <SkipLink />
       <Nav />
       <main id="main" tabIndex={-1}>
-        <Hero />
+        <Landing />
         <Services />
         <About />
         <Lab />

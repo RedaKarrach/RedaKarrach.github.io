@@ -22,6 +22,7 @@ export const en: Dict = {
   },
   hero: {
     greeting: "Hello, I am",
+    kicker: "Cybersecurity",
     role: "Cybersecurity engineering student",
     tagline:
       "I protect computer systems: I detect attacks, organise the response, and build the tools to do it myself.",

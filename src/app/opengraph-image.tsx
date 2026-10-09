@@ -21,9 +21,9 @@ export default async function OpenGraphImage() {
   const [sans600, sans400, photo] = await Promise.all([
     font("ibm-plex-sans-latin-600-normal.woff"),
     font("ibm-plex-sans-latin-400-normal.woff"),
-    readFile(path.join(process.cwd(), "public", "profile", "reda-400.webp")),
+    readFile(path.join(process.cwd(), "public", "profile", "reda-400.png")),
   ]);
-  const photoSrc = `data:image/webp;base64,${photo.toString("base64")}`;
+  const photoSrc = `data:image/png;base64,${photo.toString("base64")}`;
 
   return new ImageResponse(
     <div
