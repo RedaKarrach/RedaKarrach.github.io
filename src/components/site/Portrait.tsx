@@ -17,12 +17,12 @@ export function Portrait({
     <picture className={`block ${className}`}>
       <source
         type="image/avif"
-        srcSet="/profile/reda-200.avif 200w, /profile/reda-400.avif 400w"
+        srcSet="/profile/reda-200.avif 200w, /profile/reda-400.avif 400w, /profile/reda-800.avif 800w"
         sizes={`${size}px`}
       />
       <img
         src="/profile/reda-400.webp"
-        srcSet="/profile/reda-200.webp 200w, /profile/reda-400.webp 400w"
+        srcSet="/profile/reda-200.webp 200w, /profile/reda-400.webp 400w, /profile/reda-800.webp 800w"
         sizes={`${size}px`}
         width={400}
         height={400}
