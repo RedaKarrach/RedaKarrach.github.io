@@ -72,6 +72,15 @@ export function Landing() {
                 <Icon name="mail" className="h-5 w-5" />
               </a>
             </li>
+            <li>
+              <a
+                href={identity.phoneHref}
+                aria-label={`${t.hero.socials.phone} ${identity.phone}`}
+                className="border-rule text-muted hover:border-accent hover:text-accent grid h-11 w-11 place-items-center rounded-full border transition-colors"
+              >
+                <Icon name="phone" className="h-5 w-5" />
+              </a>
+            </li>
           </ul>
         </div>
         <div className="order-1 flex justify-center lg:order-2 lg:col-span-5 lg:justify-end">

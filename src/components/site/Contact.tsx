@@ -8,26 +8,28 @@ import { Section } from "./Section";
 
 export function Contact() {
   const { t } = useApp();
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"email" | "phone" | null>(null);
 
   useEffect(() => {
     if (!copied) return;
-    const id = window.setTimeout(() => setCopied(false), 1800);
+    const id = window.setTimeout(() => setCopied(null), 1800);
     return () => window.clearTimeout(id);
   }, [copied]);
 
-  const copyEmail = async () => {
+  const copy = async (what: "email" | "phone") => {
     try {
-      await navigator.clipboard.writeText(identity.email);
-      setCopied(true);
+      await navigator.clipboard.writeText(what === "email" ? identity.email : identity.phone);
+      setCopied(what);
     } catch {
-      setCopied(false);
+      setCopied(null);
     }
   };
+  const copiedLabel =
+    copied === "email" ? t.contact.copied : copied === "phone" ? t.contact.copiedPhone : "";
 
   return (
     <Section id="contact" kicker={t.contact.kicker} title={t.contact.title} sub={t.contact.sub}>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div className="card flex flex-col gap-3 p-6">
           <span className="bg-accent-soft text-accent grid h-12 w-12 place-items-center rounded-full">
             <Icon name="mail" className="h-6 w-6" />
@@ -39,14 +41,38 @@ export function Contact() {
           >
             {identity.email}
           </a>
-          <button type="button" onClick={copyEmail} className="btn-secondary mt-auto w-fit text-sm">
-            <Icon name={copied ? "check" : "mail"} className="h-4 w-4" />
-            {copied ? t.contact.copied : t.contact.copy}
+          <button
+            type="button"
+            onClick={() => copy("email")}
+            className="btn-secondary mt-auto w-fit text-sm"
+          >
+            <Icon name={copied === "email" ? "check" : "mail"} className="h-4 w-4" />
+            {copied === "email" ? t.contact.copied : t.contact.copy}
           </button>
-          <p className="sr-only" aria-live="polite">
-            {copied ? t.contact.copied : ""}
-          </p>
         </div>
+        <div className="card flex flex-col gap-3 p-6">
+          <span className="bg-accent-soft text-accent grid h-12 w-12 place-items-center rounded-full">
+            <Icon name="phone" className="h-6 w-6" />
+          </span>
+          <h3 className="text-lg font-semibold">{t.contact.phone}</h3>
+          <a
+            href={identity.phoneHref}
+            className="text-accent font-medium whitespace-nowrap underline-offset-4 hover:underline"
+          >
+            {identity.phone}
+          </a>
+          <button
+            type="button"
+            onClick={() => copy("phone")}
+            className="btn-secondary mt-auto w-fit text-sm"
+          >
+            <Icon name={copied === "phone" ? "check" : "phone"} className="h-4 w-4" />
+            {copied === "phone" ? t.contact.copiedPhone : t.contact.copyPhone}
+          </button>
+        </div>
+        <p className="sr-only" aria-live="polite">
+          {copiedLabel}
+        </p>
         <a
           href={identity.linkedin}
           target="_blank"
