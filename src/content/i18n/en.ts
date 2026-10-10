@@ -2,7 +2,7 @@ import type { Dict } from "./fr";
 
 export const en: Dict = {
   meta: {
-    title: "Mohamed Reda Karrach · Cybersecurity",
+    title: "Mohamed Reda Karrach · Cybersecurity, SOC / Blue Team",
     description:
       "Portfolio of Mohamed Reda Karrach, cybersecurity engineering student in Casablanca: intrusion detection, incident response, penetration testing and software development. Looking for a final-year internship (PFE) from early 2027.",
   },
@@ -13,7 +13,6 @@ export const en: Dict = {
     closeMenu: "Close menu",
   },
   nav: {
-    services: "What I do",
     about: "About",
     projects: "Projects",
     skills: "Skills",
@@ -22,10 +21,28 @@ export const en: Dict = {
   },
   hero: {
     greeting: "Hello, I am",
-    kicker: "Cybersecurity",
+    kicker: "SOC · Blue Team · Incident response",
     role: "Cybersecurity engineering student",
     tagline:
-      "I protect computer systems: I detect attacks, organise the response, and build the tools to do it myself.",
+      "I build detection and incident response pipelines, from the alert to the analyst's case file, and validate them by simulating real attacks.",
+    proofLabel: "At a glance",
+    proof: [
+      {
+        value: "Distributed SOC",
+        label: "Wazuh, Shuffle, TheHive and Cortex across two hosts",
+        href: "#project-soc-lab",
+      },
+      {
+        value: "6 ATT&CK techniques",
+        label: "detected in the lab, with evidence",
+        href: "#projects",
+      },
+      {
+        value: "Web pentest internship",
+        label: "Django API tested against the OWASP Top 10",
+        href: "#path",
+      },
+    ],
     location: "Casablanca, Morocco",
     availability: "Available for a 4 to 6 month final-year internship (PFE) from early 2027",
     cv: "Download my CV",
@@ -39,29 +56,6 @@ export const en: Dict = {
       email: "Send me an email",
       phone: "Call me",
     },
-  },
-  services: {
-    kicker: "What I do",
-    title: "Four ways I can help a team",
-    sub: "Explained simply, without jargon.",
-    items: [
-      {
-        title: "Monitoring and incident response",
-        text: "I set up tools that spot attacks in real time and trigger the response automatically: enrich the alert, open a case, notify the team.",
-      },
-      {
-        title: "Penetration testing",
-        text: "I look for weaknesses in an application before attackers do, demonstrate them, then help fix them. Hands-on experience on a real web API during an internship (OWASP Top 10, Burp Suite).",
-      },
-      {
-        title: "Software development",
-        text: "I build complete web applications, from database to interface: Python and Django, React, Next.js, Node.js. This website is one example.",
-      },
-      {
-        title: "Networks and systems",
-        text: "Linux, Docker, TCP/IP, monitoring with Zabbix, Prometheus and Grafana. I set up and run the environments of my projects myself.",
-      },
-    ],
   },
   about: {
     kicker: "About",
@@ -130,8 +124,8 @@ export const en: Dict = {
   },
   path: {
     kicker: "Path",
-    heading: "Education and experience",
-    sub: "Studies, internship and projects, most recent first.",
+    heading: "Experience and education",
+    sub: "Internship and studies, most recent first. Projects are detailed above.",
     kinds: {
       education: "Education",
       internship: "Internship",

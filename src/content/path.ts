@@ -2,32 +2,6 @@ import type { PathEntry } from "./types";
 
 export const path: PathEntry[] = [
   {
-    kind: "project",
-    period: "2025–2026",
-    title: { fr: "Distributed SOC Lab", en: "Distributed SOC Lab" },
-    org: {
-      fr: "Projet académique en équipe, playbooks de réponse à incident automatisés",
-      en: "Academic team project, automated incident response playbooks",
-    },
-    link: {
-      href: "#project-soc-lab",
-      label: { fr: "Voir le projet", en: "View the project" },
-    },
-  },
-  {
-    kind: "project",
-    period: "2025–2026",
-    title: { fr: "ReconTool (PFA)", en: "ReconTool (PFA)" },
-    org: {
-      fr: "Plateforme de détection d'intrusion réseau en temps réel",
-      en: "Real-time network intrusion detection platform",
-    },
-    link: {
-      href: "#project-recontool",
-      label: { fr: "Voir le projet", en: "View the project" },
-    },
-  },
-  {
     kind: "internship",
     period: "2024",
     title: {

@@ -4,7 +4,7 @@
  */
 export const fr = {
   meta: {
-    title: "Mohamed Reda Karrach · Cybersécurité",
+    title: "Mohamed Reda Karrach · Cybersécurité SOC / Blue Team",
     description:
       "Portfolio de Mohamed Reda Karrach, étudiant ingénieur en cybersécurité à Casablanca : détection d'intrusions, réponse aux incidents, tests d'intrusion et développement logiciel. À la recherche d'un stage de fin d'études (PFE) à partir de début 2027.",
   },
@@ -15,7 +15,6 @@ export const fr = {
     closeMenu: "Fermer le menu",
   },
   nav: {
-    services: "Ce que je fais",
     about: "À propos",
     projects: "Projets",
     skills: "Compétences",
@@ -24,10 +23,28 @@ export const fr = {
   },
   hero: {
     greeting: "Bonjour, je suis",
-    kicker: "Cybersécurité",
+    kicker: "SOC · Blue Team · Réponse à incident",
     role: "Étudiant ingénieur en cybersécurité",
     tagline:
-      "Je protège les systèmes informatiques : je détecte les attaques, j'organise la réponse et je développe moi-même les outils pour le faire.",
+      "Je construis des chaînes de détection et de réponse aux incidents, de l'alerte au dossier d'analyste, et je les valide en simulant de vraies attaques.",
+    proofLabel: "En bref",
+    proof: [
+      {
+        value: "SOC distribué",
+        label: "Wazuh, Shuffle, TheHive et Cortex sur deux hôtes",
+        href: "#project-soc-lab",
+      },
+      {
+        value: "6 techniques ATT&CK",
+        label: "détectées en laboratoire, avec preuves",
+        href: "#projects",
+      },
+      {
+        value: "Stage pentest web",
+        label: "API Django testée contre l'OWASP Top 10",
+        href: "#path",
+      },
+    ],
     location: "Casablanca, Maroc",
     availability: "Disponible pour un stage de fin d'études (PFE) de 4 à 6 mois dès début 2027",
     cv: "Télécharger mon CV",
@@ -41,29 +58,6 @@ export const fr = {
       email: "M'écrire un e-mail",
       phone: "M'appeler",
     },
-  },
-  services: {
-    kicker: "Ce que je fais",
-    title: "Quatre façons dont je peux aider une équipe",
-    sub: "Expliquées simplement, sans jargon.",
-    items: [
-      {
-        title: "Surveillance et réponse aux incidents",
-        text: "Je mets en place des outils qui repèrent les attaques en temps réel et déclenchent automatiquement la réponse : enrichissement de l'alerte, ouverture d'un dossier, notification de l'équipe.",
-      },
-      {
-        title: "Tests d'intrusion",
-        text: "Je cherche les failles d'une application avant les attaquants, je les démontre, puis j'aide à les corriger. Expérience sur une API web réelle en stage (OWASP Top 10, Burp Suite).",
-      },
-      {
-        title: "Développement logiciel",
-        text: "Je construis des applications web complètes, de la base de données à l'interface : Python et Django, React, Next.js, Node.js. Ce site en est un exemple.",
-      },
-      {
-        title: "Réseaux et systèmes",
-        text: "Linux, Docker, TCP/IP, supervision avec Zabbix, Prometheus et Grafana. Je monte et j'administre moi-même les environnements de mes projets.",
-      },
-    ],
   },
   about: {
     kicker: "À propos",
@@ -131,8 +125,8 @@ export const fr = {
   },
   path: {
     kicker: "Parcours",
-    heading: "Formation et expérience",
-    sub: "Études, stage et projets, du plus récent au plus ancien.",
+    heading: "Expérience et formation",
+    sub: "Stage et études, du plus récent au plus ancien. Les projets sont détaillés plus haut.",
     kinds: {
       education: "Formation",
       internship: "Stage",

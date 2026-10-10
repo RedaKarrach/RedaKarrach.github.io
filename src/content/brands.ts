@@ -77,11 +77,11 @@ export const brands: Record<string, Brand> = {
 /** Tools shown on the 3D ring around the portrait, in orbit order. */
 export const heroRing = [
   "Wazuh",
+  "Shuffle",
   "TheHive",
-  "Docker",
-  "Python",
-  "React",
+  "Cortex",
   "Linux",
   "Kali Linux",
-  "Django/DRF",
+  "Docker",
+  "Python",
 ];

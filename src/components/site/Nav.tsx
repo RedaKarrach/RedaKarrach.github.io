@@ -5,7 +5,7 @@ import type { Lang } from "@/content/types";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
 
-const links = ["services", "about", "projects", "skills", "path", "contact"] as const;
+const links = ["about", "projects", "path", "skills", "contact"] as const;
 
 export function Nav() {
   const { t, lang, setLang, theme, setTheme } = useApp();

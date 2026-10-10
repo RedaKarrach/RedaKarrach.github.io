@@ -53,7 +53,7 @@ export default async function OpenGraphImage() {
           }}
         >
           <div style={{ width: 28, height: 3, background: ACCENT }} />
-          CYBERSÉCURITÉ
+          SOC · BLUE TEAM · RÉPONSE À INCIDENT
         </div>
         <div style={{ fontSize: 74, fontWeight: 600, letterSpacing: -2, lineHeight: 1.05 }}>
           {identity.name}
@@ -66,8 +66,8 @@ export default async function OpenGraphImage() {
             color: "rgba(232,238,243,0.8)",
           }}
         >
-          Étudiant ingénieur en cybersécurité. Détection d&apos;intrusions, réponse aux incidents,
-          tests d&apos;intrusion et développement logiciel.
+          Étudiant ingénieur en cybersécurité. SOC open source (Wazuh, Shuffle, TheHive, Cortex),
+          détection validée par simulation d&apos;attaques.
         </div>
         <div style={{ fontSize: 24, color: ACCENT, marginTop: 10 }}>
           Casablanca · Stage PFE dès début 2027
