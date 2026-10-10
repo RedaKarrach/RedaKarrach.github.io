@@ -38,8 +38,8 @@ export const en: Dict = {
         href: "#projects",
       },
       {
-        value: "Web pentest internship",
-        label: "Django API tested against the OWASP Top 10",
+        value: "Pentest internship · Circet",
+        label: "Django API tested against the OWASP Top 10 (2025)",
         href: "#path",
       },
     ],

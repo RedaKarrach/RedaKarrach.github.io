@@ -40,8 +40,8 @@ export const fr = {
         href: "#projects",
       },
       {
-        value: "Stage pentest web",
-        label: "API Django testée contre l'OWASP Top 10",
+        value: "Stage pentest · Circet",
+        label: "API Django testée contre l'OWASP Top 10 (2025)",
         href: "#path",
       },
     ],

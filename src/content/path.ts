@@ -3,12 +3,13 @@ import type { PathEntry } from "./types";
 export const path: PathEntry[] = [
   {
     kind: "internship",
-    period: "2024",
+    period: "2025",
     title: {
       fr: "Stagiaire sécurité applicative (pentest web)",
       en: "Application security intern (web pentest)",
     },
-    org: { fr: "Stage académique encadré", en: "Supervised academic internship" },
+    org: { fr: "Circet", en: "Circet" },
+    place: "Casablanca",
     bullets: [
       {
         fr: "Tests d'intrusion d'une API Django REST contre l'OWASP Top 10 avec Burp Suite (manuel) et SQLMap (automatisé) ; SQLi, XSS et Broken Access Control identifiés et exploités.",

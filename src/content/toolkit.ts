@@ -81,5 +81,5 @@ export const toolLabelEn: Record<string, string> = {
   "Sécurité cloud": "Cloud security",
 };
 
-/** Tools the 2024 internship relied on, used to highlight the Path entry too. */
+/** Tools the 2025 internship relied on, used to highlight the Path entry too. */
 export const internshipTools = ["OWASP Top 10", "Burp Suite", "SQLMap", "CVSS", "Django/DRF"];

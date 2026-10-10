@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { identity } from "@/content/identity";
 import { useApp } from "@/lib/providers";
 import { Icon } from "./Icon";
+import { Orb } from "./Orb";
 import { Section } from "./Section";
 
 export function Contact() {
@@ -28,7 +29,14 @@ export function Contact() {
     copied === "email" ? t.contact.copied : copied === "phone" ? t.contact.copiedPhone : "";
 
   return (
-    <Section id="contact" kicker={t.contact.kicker} title={t.contact.title} sub={t.contact.sub}>
+    <Section
+      id="contact"
+      kicker={t.contact.kicker}
+      title={t.contact.title}
+      sub={t.contact.sub}
+      className="relative overflow-hidden"
+      aside={<Orb />}
+    >
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div className="card flex flex-col gap-3 p-6">
           <span className="bg-accent-soft text-accent grid h-12 w-12 place-items-center rounded-full">
